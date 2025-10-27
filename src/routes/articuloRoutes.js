@@ -18,4 +18,30 @@ router.get("/articulos", (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+//Modificar el nombre de un articulo por su id
+router.put("/articulos/:id", (req, res) => {
+    const { id } = req.params;
+    const { titulo, autores, fechaPublicacion, resumen, cantReferencias, nombreBD, nombreRevista, enlace } = req.body;
+    animalSchema
+        .updateOne({ _id: id }, {
+            $set: { titulo, autores, fechaPublicacion, resumen, cantReferencias, nombreBD, nombreRevista, enlace }
+        })
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
+
+//Eliminar un articulo por su id
+router.delete("/articulos/:id", (req, res) => {
+    const { id } = req.params;
+    articleSchema
+        .findByIdAndDelete(id)
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((error) => {
+            res.json({ message: error });
+        });
+});
+
 module.exports = router;
+
