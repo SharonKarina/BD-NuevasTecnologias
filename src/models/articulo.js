@@ -9,7 +9,7 @@ const articleSchema = mongoose.Schema({
         required: true,
     },
     fechaPublicacion: {
-        type: Date,
+        type: Number,
         required: true,
     },
     resumen: {
@@ -34,3 +34,22 @@ const articleSchema = mongoose.Schema({
     }
 });
 module.exports = mongoose.model("Articulo", articleSchema);
+
+/*
+formato para creacion en Postman 
+
+*fechaPublicacion se refiere solo al año.
+
+{
+    "titulo": "",
+    "autores": "",
+    "fechaPublicacion": 0,
+    "resumen": "",
+    "cantReferencias": 0,
+    "nombreBD": "",
+    "nombreRevista": "",
+    "enlace": ""
+}
+    
+
+*/
