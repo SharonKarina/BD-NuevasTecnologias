@@ -22,7 +22,7 @@ router.get("/articulos", (req, res) => {
 router.put("/articulos/:id", (req, res) => {
     const { id } = req.params;
     const { titulo, autores, fechaPublicacion, resumen, cantReferencias, nombreBD, nombreRevista, enlace } = req.body;
-    animalSchema
+    articleSchema
         .updateOne({ _id: id }, {
             $set: { titulo, autores, fechaPublicacion, resumen, cantReferencias, nombreBD, nombreRevista, enlace }
         })
