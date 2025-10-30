@@ -14,7 +14,7 @@ const articleSchema = mongoose.Schema({
     },
     resumen: {
         type: String,
-        requiered: true,
+        required: true,
     },
     cantReferencias: {
         type: Number,
